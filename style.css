@@ -1,0 +1,61 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to right, #11998e, #38ef7d); 
+  padding: clamp(20px, 12vw, 120px) 10px 10px;
+}
+
+#carousel{
+  width: 1200px;
+  height: 500px;
+  border: solid black 1px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.jaune, .rouge, .bleu{
+  width: 35%;
+  height: 100%;
+  border: solid black 1px;
+}
+.jaune{
+  background-color: yellow;
+}
+.rouge{
+  background-image: url("https://fr.web.img3.acsta.net/pictures/21/05/04/15/43/5215186.jpg");
+  background-position: center;
+  background-size: cover;
+  /* overflow: hidden; */
+}
+.bleu{
+  background-color: blue;
+}
+
+.screen{
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  /* position: absolute; */
+  position: relative;
+}
+
+.vitre{
+  width: 400px;
+  height: 700px;
+  border: solid black 1px;
+  overflow: hidden;
+  /* opacity: 0; */
+}
+
+button:nth-child(4){
+  color: blue;
+  height: 20px;
+}
