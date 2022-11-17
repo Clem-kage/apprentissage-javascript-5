@@ -17,7 +17,8 @@ let screen = document.querySelector('.vitre')
 let i = 0;
 screen.style.backgroundImage = `url('${tab[0].image}')`
 screen.style.backgroundPosition = "center"
-screen.style.backgroundPosition = "center"
+screen.style.backgroundSize = "cover"
+
 
 let target = ()=>{
    tab.forEach(el => {
@@ -25,7 +26,8 @@ let target = ()=>{
    });
 }
 let afficher = (a)=>{
-    let objet = tab.find((obj)=>obj.name === a.target.id)
+
+    let objet = tab.find((obj)=>obj.name === a.target.id);
     let e = tab.indexOf(objet)
     console.log(objet)
     screen.style.backgroundImage = `url('${objet.image}')`
@@ -37,22 +39,36 @@ let afficher = (a)=>{
 
 let createTarget = (element)=>{
    let btn = document.createElement('button')
+   btn.classList.add('option')
    btn.setAttribute('id', element.name)
    btn.textContent = element.name
    area.appendChild(btn)
+   
+   
 
-   btn.addEventListener('click', afficher)
+   btn.addEventListener('click', function(){
+    let AllBtns = document.querySelectorAll('.option')
+    AllBtns.forEach(bt => {
+        bt.classList.remove('active')
+    });
+    btn.classList.add('active');
+
+    afficher(event)
+   })
 }
 
 
 target()
 
 let go = ()=>{
+
+        screen.style.animation = `slidein ease-in .5s`
         i++
         if(i < tab.length){
             console.log(tab[i].image)
             screen.style.backgroundImage = `url('${tab[i].image}')`
             screen.style.backgroundSize = "cover"
+
         }else{
             i=0
             screen.style.backgroundImage = `url('${tab[i].image}')`
